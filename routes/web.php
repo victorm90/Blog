@@ -4,7 +4,10 @@ use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
-Route::get('/', [PostController::class, 'index'])->name('home');
+Route::redirect('/', 'posts')->name('home');
+
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

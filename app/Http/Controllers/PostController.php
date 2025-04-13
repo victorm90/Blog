@@ -12,7 +12,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::where('is_published', true)
+        ->orderBy('published_at', 'desc')
+        ->paginate(8);
+
+        return view('posts.index',compact('posts'));
     }
 
     /**
@@ -36,7 +40,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return view('posts.show');
     }
 
     /**

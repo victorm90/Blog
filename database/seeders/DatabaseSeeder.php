@@ -22,8 +22,8 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('admin'),        
         ]);
 
-        Category::factory(5)->create();
-        Post::factory(100)->create();
-        Tag::factory(8)->create();
+        Category::factory(20)->create();
+        Post::factory(200)->create();
+        Tag::factory(30)->create();
     }
 }
